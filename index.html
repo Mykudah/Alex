@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NFC Video Trigger</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: black;
+      overflow: hidden;
+      position: relative;
+    }
+    video {
+      max-width: 70%;
+      max-height: 70%;
+      width: auto;
+      height: auto;
+      display: none;
+    }
+    #playButton {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body onclick="playVideo()">
+  <video id="videoPlayer" loop>
+    <source src="Alex.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div id="playButton">Play</div>
+  <script>
+    function playVideo() {
+      var playButton = document.getElementById('playButton');
+      var video = document.getElementById('videoPlayer');
+      playButton.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    }
+  </script>
+</body>
+</html>
