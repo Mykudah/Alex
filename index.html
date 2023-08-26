@@ -14,20 +14,28 @@
       position: relative;
     }
     video {
-      max-width: 70%;
-      max-height: 70%;
-      width: auto;
-      height: auto;
+      width: 60%;
+      height: 60%;
       display: none;
     }
-    #playButton {
+    #loveMessage {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
+      text-align: center;
+      font-size: 24px;
+    }
+    #replayText {
+      text-decoration: underline;
       cursor: pointer;
-      font-size: 20px;
+      color: white;
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
     }
   </style>
 </head>
@@ -36,13 +44,24 @@
     <source src="Alex.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <div id="playButton">Play</div>
+  <div id="loveMessage">
+    We love you Alex.<br><br>
+    On 8th April 2023, we spent a wonderful day with Alex. She took us for a walk in Cotterstock. We laughed a lot, enjoyed the sunshine and painted the sky pink.<br><br> Replay the moment <br>
+    <div id="replayText" onclick="replayVideo()">Replay the moment</div>
+  </div>
   <script>
     function playVideo() {
-      var playButton = document.getElementById('playButton');
+      var loveMessage = document.getElementById('loveMessage');
       var video = document.getElementById('videoPlayer');
-      playButton.style.display = 'none';
+      var replayText = document.getElementById('replayText');
+      loveMessage.style.display = 'none';
+      replayText.style.display = 'none';
       video.style.display = 'block';
+      video.play();
+    }
+    function replayVideo() {
+      var video = document.getElementById('videoPlayer');
+      video.currentTime = 0;
       video.play();
     }
   </script>
