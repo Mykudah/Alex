@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ html>
 <html>
 <head>
   <title>NFC Video Trigger</title>
@@ -21,9 +21,17 @@
   </style>
 </head>
 <body>
-  <video autoplay loop>
+  <div id="playButton" onclick="playVideo()">Play</div>
+  <video id="videoPlayer" loop>
     <source src="Alex.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <script>
+    function playVideo() {
+      document.getElementById('playButton').style.display = 'none';
+      var video = document.getElementById('videoPlayer');
+      video.play();
+    }
+  </script>
 </body>
 </html>
